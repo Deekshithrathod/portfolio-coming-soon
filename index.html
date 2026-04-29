@@ -1,317 +1,666 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Deekshith Rathod — Portfolio V2 Coming Soon</title>
-  <meta name="description" content="Deekshith Rathod's portfolio is getting a major upgrade. Launching May 15, 2026.">
-  <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deekshith Rathod</title>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 
-    :root {
-      --bg: #0a0a0f;
-      --surface: #12121a;
-      --accent: #6c63ff;
-      --accent-glow: rgba(108, 99, 255, 0.35);
-      --text: #e8e6f0;
-      --muted: #8a879a;
-    }
+/* ─────────────────── SELECTOR ─────────────────── */
+#sel{
+  min-height:100vh;background:#e8e8e8;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:48px 20px;
+  font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;
+}
+#sel>h2{
+  font-size:10px;font-weight:600;letter-spacing:.25em;text-transform:uppercase;
+  color:#999;margin-bottom:10px;
+}
+#sel>p{font-size:11px;color:#bbb;margin-bottom:36px}
+.sg{display:grid;grid-template-columns:repeat(5,180px);gap:20px}
+@media(max-width:1000px){.sg{grid-template-columns:repeat(3,1fr);max-width:580px}}
+@media(max-width:600px){.sg{grid-template-columns:repeat(2,1fr);max-width:380px}}
+.sc{display:flex;flex-direction:column;gap:7px}
+.st{
+  width:100%;aspect-ratio:3/4;border-radius:6px;overflow:hidden;
+  cursor:pointer;outline:2px solid transparent;outline-offset:2px;
+  transition:outline-color .15s,transform .15s;
+}
+.st:hover{outline-color:#222;transform:translateY(-4px)}
+.sn{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#666;text-align:center}
+.sb{
+  background:#111;color:#fff;border:none;padding:9px 0;
+  font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  cursor:pointer;border-radius:3px;font-family:inherit;transition:background .15s;
+}
+.sb:hover{background:#555}
 
-    html { font-size: 16px; }
+/* All designs off until picked */
+.d{display:none;min-height:100vh}
 
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      position: relative;
-    }
 
-    /* Animated gradient orbs */
-    .orb {
-      position: fixed;
-      border-radius: 50%;
-      filter: blur(100px);
-      opacity: 0.4;
-      pointer-events: none;
-      animation: float 12s ease-in-out infinite;
-    }
-    .orb-1 {
-      width: 500px; height: 500px;
-      background: radial-gradient(circle, #6c63ff, transparent 70%);
-      top: -10%; left: -10%;
-      animation-delay: 0s;
-    }
-    .orb-2 {
-      width: 400px; height: 400px;
-      background: radial-gradient(circle, #ff6b9d, transparent 70%);
-      bottom: -15%; right: -10%;
-      animation-delay: -4s;
-    }
-    .orb-3 {
-      width: 300px; height: 300px;
-      background: radial-gradient(circle, #00d4aa, transparent 70%);
-      top: 50%; left: 60%;
-      animation-delay: -8s;
-    }
+/* ══════════════════════════════════════════════════════
+   DESIGN 1 — BRUTALIST
+   Black / white / red. Aggressive type. No softness.
+══════════════════════════════════════════════════════ */
+#d1{
+  background:#080808;color:#efefef;
+  font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;
+  display:flex;flex-direction:column;
+}
+.d1-nav{
+  padding:18px 48px;border-bottom:3px solid #e01818;
+  display:flex;justify-content:space-between;align-items:center;
+  flex-shrink:0;
+}
+.d1-nav-l{font-size:11px;font-weight:800;letter-spacing:.22em;text-transform:uppercase}
+.d1-nav-r{font-size:11px;font-weight:700;color:#444;letter-spacing:.1em;text-transform:uppercase}
+.d1-body{
+  flex:1;padding:clamp(32px,6vw,64px) clamp(24px,6vw,64px);
+  display:flex;flex-direction:column;justify-content:center;
+}
+.d1-flag{
+  font-size:10px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;
+  color:#e01818;margin-bottom:20px;
+  display:flex;align-items:center;gap:10px;
+}
+.d1-flag::before{content:'';display:block;width:28px;height:3px;background:#e01818}
+.d1-h{
+  font-size:clamp(52px,12vw,152px);font-weight:900;
+  line-height:.88;text-transform:uppercase;letter-spacing:-.03em;
+  margin-bottom:clamp(24px,4vw,48px);
+}
+.d1-h .r{color:#e01818}
+.d1-h .inv{background:#efefef;color:#080808;padding:0 8px;display:inline}
+.d1-msg{
+  border-left:4px solid #e01818;padding-left:20px;
+  font-size:clamp(13px,1.8vw,18px);line-height:1.6;
+  color:#777;max-width:540px;margin-bottom:clamp(32px,5vw,56px);
+}
+.d1-msg strong{color:#efefef}
+.d1-cd{display:flex}
+.d1-cdi{
+  border:2px solid #222;padding:clamp(12px,2vw,20px) clamp(16px,3vw,28px);
+  margin-right:-2px;
+}
+.d1-cdn{
+  font-size:clamp(28px,6vw,72px);font-weight:900;
+  color:#e01818;font-variant-numeric:tabular-nums;line-height:1;
+}
+.d1-cdl{
+  font-size:9px;letter-spacing:.18em;text-transform:uppercase;
+  color:#444;margin-top:6px;
+}
+.d1-foot{
+  border-top:2px solid #111;padding:16px 48px;flex-shrink:0;
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:11px;color:#444;
+}
+.d1-foot a{color:#efefef;text-decoration:underline;text-underline-offset:3px}
+@media(max-width:600px){
+  .d1-nav,.d1-foot{padding:16px 24px}
+  .d1-body{padding:32px 24px}
+  .d1-cd{flex-wrap:wrap}
+  .d1-cdi{flex:1;min-width:45%}
+}
 
-    @keyframes float {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      33% { transform: translate(30px, -40px) scale(1.05); }
-      66% { transform: translate(-20px, 20px) scale(0.95); }
-    }
 
-    /* Noise overlay */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 0;
-    }
+/* ══════════════════════════════════════════════════════
+   DESIGN 2 — MINIMALIST TYPOGRAPHIC
+   Off-white. Italic serif. Total restraint.
+══════════════════════════════════════════════════════ */
+#d2{
+  background:#f7f6f2;color:#111;
+  font-family:Georgia,'Times New Roman',serif;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:80px 40px;text-align:center;position:relative;
+}
+.d2-eyebrow{
+  font-family:-apple-system,Helvetica,sans-serif;
+  font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:#bbb;
+  margin-bottom:72px;
+}
+.d2-h{
+  font-size:clamp(22px,4.2vw,52px);font-weight:400;font-style:italic;
+  line-height:1.35;max-width:640px;margin-bottom:56px;
+}
+.d2-rule{width:28px;height:1px;background:#d0d0d0;margin:0 auto 56px}
+.d2-when{
+  font-family:-apple-system,Helvetica,sans-serif;
+  font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:#bbb;
+  margin-bottom:72px;
+}
+.d2-cd{display:flex;gap:clamp(28px,6vw,64px);margin-bottom:80px}
+.d2-cdi{text-align:center}
+.d2-cdn{
+  font-size:clamp(36px,7vw,80px);font-weight:400;
+  font-variant-numeric:tabular-nums;line-height:1;color:#111;
+}
+.d2-cdl{
+  font-family:-apple-system,Helvetica,sans-serif;
+  font-size:8px;letter-spacing:.22em;text-transform:uppercase;color:#ccc;margin-top:10px;
+}
+.d2-contact a{
+  font-family:-apple-system,Helvetica,sans-serif;
+  font-size:10px;letter-spacing:.16em;text-transform:uppercase;
+  color:#111;text-decoration:none;border-bottom:1px solid #ccc;padding-bottom:2px;
+}
+.d2-name{
+  position:absolute;bottom:28px;left:0;right:0;text-align:center;
+  font-family:-apple-system,Helvetica,sans-serif;
+  font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:#ccc;
+}
 
-    .container {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      padding: 2rem;
-      max-width: 720px;
-      animation: fadeUp 1s ease-out both;
-    }
 
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+/* ══════════════════════════════════════════════════════
+   DESIGN 3 — TERMINAL / HACKER
+   Dark green-tinted black. CRT scanlines. Monospace only.
+══════════════════════════════════════════════════════ */
+#d3{
+  background:#080d08;color:#00e53a;
+  font-family:'Courier New',Courier,monospace;
+  padding:clamp(24px,4vw,48px);
+  position:relative;overflow:hidden;
+}
+#d3::before{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:10;
+  background:repeating-linear-gradient(0deg,rgba(0,0,0,.07) 0,rgba(0,0,0,.07) 1px,transparent 1px,transparent 2px);
+}
+#d3::after{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:10;
+  background:radial-gradient(ellipse at center,transparent 52%,rgba(0,0,0,.7) 100%);
+}
+.d3i{max-width:820px;margin:0 auto;position:relative;z-index:1}
+.d3p{font-size:clamp(11px,1.8vw,15px);margin-bottom:5px;line-height:1.6}
+.d3-dim{color:#006820}
+.d3-box{
+  border:1px solid #006820;padding:16px 20px;
+  margin:20px 0;font-size:clamp(11px,1.6vw,14px);line-height:1.9;
+}
+.d3-ascii{
+  font-size:clamp(6px,1.1vw,11px);line-height:1.15;
+  color:#00b830;margin:24px 0;white-space:pre;overflow-x:auto;
+}
+.d3-cdrow{display:flex;margin:14px 0}
+.d3-cdi{
+  border:1px solid #006820;padding:10px 18px;
+  margin-right:-1px;text-align:center;
+}
+.d3-cdn{
+  font-size:clamp(20px,4vw,40px);
+  color:#00e53a;font-variant-numeric:tabular-nums;
+}
+.d3-cdl{font-size:8px;color:#006820;margin-top:3px;text-transform:uppercase;letter-spacing:.1em}
+.blink{animation:blink 1s step-end infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+.d3-link{color:#00e53a;text-decoration:underline}
+@media(max-width:480px){
+  .d3-ascii{font-size:5px}
+  .d3-cdn{font-size:20px}
+}
 
-    /* Badge */
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.4rem 1rem;
-      background: rgba(108, 99, 255, 0.1);
-      border: 1px solid rgba(108, 99, 255, 0.25);
-      border-radius: 100px;
-      font-size: 0.8rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 2rem;
-      animation: fadeUp 1s ease-out 0.2s both;
-    }
-    .badge .dot {
-      width: 6px; height: 6px;
-      background: var(--accent);
-      border-radius: 50%;
-      animation: pulse 2s ease-in-out infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; box-shadow: 0 0 0 0 var(--accent-glow); }
-      50% { opacity: 0.6; box-shadow: 0 0 0 8px transparent; }
-    }
 
-    h1 {
-      font-size: clamp(2.2rem, 6vw, 4rem);
-      font-weight: 700;
-      line-height: 1.15;
-      letter-spacing: -0.03em;
-      margin-bottom: 1.5rem;
-      animation: fadeUp 1s ease-out 0.4s both;
-    }
-    h1 .highlight {
-      background: linear-gradient(135deg, #6c63ff, #ff6b9d, #00d4aa);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
+/* ══════════════════════════════════════════════════════
+   DESIGN 4 — EDITORIAL / MAGAZINE
+   Newsprint cream. Strong grid. Ink typography.
+══════════════════════════════════════════════════════ */
+#d4{
+  background:#eee8d5;color:#1c1400;
+  font-family:Georgia,'Times New Roman',serif;
+  display:grid;grid-template-rows:auto 1fr auto;
+}
+.d4-hdr{
+  border-bottom:1px solid #c4b27a;padding:14px 48px;
+  display:flex;justify-content:space-between;align-items:center;
+}
+.d4-pub{
+  font-family:-apple-system,Helvetica,sans-serif;
+  font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:#9a8450;
+}
+.d4-iss{
+  font-family:-apple-system,Helvetica,sans-serif;
+  font-size:9px;color:#9a8450;letter-spacing:.06em;
+}
+.d4-main{
+  padding:clamp(24px,4vw,48px) clamp(24px,5vw,60px);
+  display:grid;grid-template-columns:1fr 1px 264px;
+  gap:0 clamp(24px,4vw,48px);align-items:start;
+}
+.d4-sep{background:#c4b27a}
+.d4-cat{
+  font-family:-apple-system,Helvetica,sans-serif;
+  font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:#b83018;
+  display:flex;align-items:center;gap:10px;margin-bottom:20px;
+}
+.d4-cat::before{content:'';width:20px;height:2px;background:#b83018;flex-shrink:0}
+.d4-h{
+  font-size:clamp(32px,5.5vw,68px);font-weight:700;
+  line-height:1;letter-spacing:-.025em;margin-bottom:28px;
+}
+.d4-deck{
+  font-size:clamp(14px,1.8vw,18px);font-style:italic;line-height:1.65;
+  color:#5a430e;border-left:3px solid #b83018;
+  padding-left:16px;margin:0 0 28px;max-width:520px;
+}
+.d4-body{
+  font-size:13px;line-height:1.9;color:#3a2c08;
+  max-width:540px;columns:2;column-gap:28px;
+}
+.d4-body a{color:#b83018}
+.d4-rhs{}
+.d4-slbl{
+  font-family:-apple-system,Helvetica,sans-serif;
+  font-size:8px;letter-spacing:.22em;text-transform:uppercase;color:#9a8450;
+  border-bottom:1px solid #c4b27a;padding-bottom:8px;margin-bottom:4px;
+}
+.d4-cdi{
+  display:flex;justify-content:space-between;align-items:baseline;
+  padding:10px 0;border-bottom:1px solid #ddd1a8;
+}
+.d4-cdn{font-size:40px;font-weight:700;font-variant-numeric:tabular-nums}
+.d4-cdl{
+  font-family:-apple-system,Helvetica,sans-serif;
+  font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#9a8450;
+}
+.d4-aside{
+  margin-top:20px;font-size:11px;line-height:1.75;
+  color:#5a430e;font-style:italic;
+  border-top:1px solid #c4b27a;padding-top:16px;
+}
+.d4-ftr{
+  border-top:1px solid #c4b27a;padding:14px 48px;
+  display:flex;justify-content:space-between;
+  font-family:-apple-system,Helvetica,sans-serif;font-size:10px;color:#9a8450;
+}
+.d4-ftr a{color:#b83018;text-decoration:none}
+@media(max-width:768px){
+  .d4-main{grid-template-columns:1fr}
+  .d4-sep{display:none}
+  .d4-body{columns:1}
+  .d4-hdr,.d4-ftr{padding:14px 24px}
+  .d4-main{padding:24px}
+}
 
-    .subtitle {
-      font-size: clamp(1rem, 2.5vw, 1.25rem);
-      color: var(--muted);
-      line-height: 1.7;
-      max-width: 540px;
-      margin: 0 auto 2.5rem;
-      animation: fadeUp 1s ease-out 0.6s both;
-    }
 
-    /* Countdown */
-    .countdown {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-bottom: 2.5rem;
-      animation: fadeUp 1s ease-out 0.8s both;
-    }
-    .countdown-block {
-      background: var(--surface);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 16px;
-      padding: 1.2rem 1.5rem;
-      min-width: 90px;
-      backdrop-filter: blur(10px);
-      transition: transform 0.2s, border-color 0.3s;
-    }
-    .countdown-block:hover {
-      transform: translateY(-2px);
-      border-color: rgba(108, 99, 255, 0.3);
-    }
-    .countdown-number {
-      font-size: 2.2rem;
-      font-weight: 700;
-      font-variant-numeric: tabular-nums;
-      background: linear-gradient(135deg, #fff, #c4c0ff);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .countdown-label {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--muted);
-      margin-top: 0.3rem;
-    }
-
-    /* CTA link */
-    .cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.85rem 2rem;
-      background: linear-gradient(135deg, #6c63ff, #5a52e0);
-      color: #fff;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.95rem;
-      border-radius: 12px;
-      transition: transform 0.2s, box-shadow 0.3s;
-      box-shadow: 0 4px 20px var(--accent-glow);
-      animation: fadeUp 1s ease-out 1s both;
-    }
-    .cta:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 30px var(--accent-glow);
-    }
-    .cta svg { width: 16px; height: 16px; }
-
-    /* Footer */
-    .footer {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      text-align: center;
-      padding: 1.5rem;
-      font-size: 0.8rem;
-      color: var(--muted);
-      z-index: 1;
-      animation: fadeUp 1s ease-out 1.2s both;
-    }
-    .footer a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    /* Grid pattern */
-    .grid-bg {
-      position: fixed;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
-      background-size: 60px 60px;
-      pointer-events: none;
-      z-index: 0;
-      mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
-      -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
-    }
-
-    @media (max-width: 480px) {
-      .countdown-block { min-width: 72px; padding: 1rem 1.1rem; }
-      .countdown-number { font-size: 1.6rem; }
-    }
-  </style>
+/* ══════════════════════════════════════════════════════
+   DESIGN 5 — PLAYFUL / NEO-BRUTALIST
+   Warm cream. Thick outlines. Bold shadows. Pure fun.
+══════════════════════════════════════════════════════ */
+#d5{
+  background:#fff9ec;color:#140800;
+  font-family:-apple-system,'Helvetica Neue',Arial,sans-serif;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:60px 32px;position:relative;overflow:hidden;min-height:100vh;
+}
+.d5-blob{position:absolute;pointer-events:none;border-radius:55% 45% 60% 40%/40% 60% 45% 55%}
+.d5-b1{width:480px;height:480px;background:#ffbe0b;opacity:.16;top:-20%;right:-12%}
+.d5-b2{width:340px;height:340px;background:#ff6b35;opacity:.13;bottom:-14%;left:-8%}
+.d5-b3{width:200px;height:200px;background:#ff2d6f;opacity:.09;top:38%;right:4%}
+.d5i{position:relative;z-index:1;text-align:center;max-width:680px;width:100%}
+.d5-stamp{
+  display:inline-block;background:#ffbe0b;color:#140800;
+  font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+  padding:6px 18px;border-radius:100px;margin-bottom:28px;
+  border:2px solid #140800;transform:rotate(-1.5deg);
+}
+.d5-h{
+  font-size:clamp(40px,9vw,104px);font-weight:900;
+  line-height:1;letter-spacing:-.04em;margin-bottom:20px;
+}
+.d5-h .crossed{
+  display:inline-block;color:#ff6b35;
+  text-decoration:line-through;
+  text-decoration-thickness:5px;
+  text-decoration-color:#ff2d6f;
+}
+.d5-sub{
+  font-size:clamp(14px,2vw,18px);line-height:1.65;
+  color:#6a3208;max-width:440px;margin:0 auto 44px;
+}
+.d5-cd{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:44px}
+.d5-cdi{
+  background:#fff;border:3px solid #140800;border-radius:16px;
+  padding:18px 22px;min-width:88px;
+  box-shadow:5px 5px 0 #140800;
+}
+.d5-cdn{
+  font-size:clamp(28px,5vw,52px);font-weight:900;
+  color:#ff6b35;font-variant-numeric:tabular-nums;line-height:1;
+}
+.d5-cdl{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:#bbb;margin-top:4px}
+.d5-cta{
+  display:inline-flex;align-items:center;gap:8px;
+  background:#140800;color:#fff9ec;text-decoration:none;
+  font-size:15px;font-weight:800;padding:16px 36px;
+  border-radius:100px;border:3px solid #140800;
+  box-shadow:5px 5px 0 #ff6b35;
+  transition:transform .1s,box-shadow .1s;
+}
+.d5-cta:hover{transform:translate(3px,3px);box-shadow:2px 2px 0 #ff6b35}
+.d5-foot{margin-top:28px;font-size:11px;color:#bbb;letter-spacing:.04em}
+</style>
 </head>
 <body>
-  <div class="grid-bg"></div>
-  <div class="orb orb-1"></div>
-  <div class="orb orb-2"></div>
-  <div class="orb orb-3"></div>
 
-  <div class="container">
-    <div class="badge">
-      <span class="dot"></span>
-      Currently Building
+<!-- ─── SELECTOR ─────────────────────────────────────── -->
+<div id="sel">
+  <h2>Choose your design</h2>
+  <p>Click any preview or button to see the full design</p>
+  <div class="sg">
+
+    <!-- Thumb 1: Brutalist -->
+    <div class="sc">
+      <div class="st" onclick="pick(1)" style="background:#080808">
+        <div style="height:100%;padding:8% 8% 6%;display:flex;flex-direction:column;gap:0">
+          <div style="border-bottom:2px solid #e01818;padding-bottom:5%;margin-bottom:5%;display:flex;justify-content:space-between;align-items:center">
+            <div style="font-family:Arial,sans-serif;font-size:5px;font-weight:900;color:#efefef;letter-spacing:.15em;text-transform:uppercase">DR</div>
+            <div style="font-size:5px;color:#333;font-family:Arial,sans-serif">2026</div>
+          </div>
+          <div style="font-family:Arial,sans-serif;font-size:21px;font-weight:900;color:#efefef;text-transform:uppercase;line-height:.88;letter-spacing:-1px;flex:1">
+            BUI<br>LDI<br><span style="color:#e01818">NG</span><br><span style="background:#efefef;color:#080808;padding:0 3px">V2</span>
+          </div>
+          <div style="display:flex;gap:0;margin-top:6%">
+            <div style="flex:1;border:1px solid #222;padding:4%"><div style="font-family:Arial,sans-serif;font-size:9px;font-weight:900;color:#e01818">16</div><div style="font-size:4px;color:#444;text-transform:uppercase;letter-spacing:.05em">D</div></div>
+            <div style="flex:1;border:1px solid #222;padding:4%;margin-left:-1px"><div style="font-family:Arial,sans-serif;font-size:9px;font-weight:900;color:#e01818">05</div><div style="font-size:4px;color:#444;text-transform:uppercase;letter-spacing:.05em">H</div></div>
+            <div style="flex:1;border:1px solid #222;padding:4%;margin-left:-1px"><div style="font-family:Arial,sans-serif;font-size:9px;font-weight:900;color:#e01818">32</div><div style="font-size:4px;color:#444;text-transform:uppercase;letter-spacing:.05em">M</div></div>
+            <div style="flex:1;border:1px solid #222;padding:4%;margin-left:-1px"><div style="font-family:Arial,sans-serif;font-size:9px;font-weight:900;color:#e01818">47</div><div style="font-size:4px;color:#444;text-transform:uppercase;letter-spacing:.05em">S</div></div>
+          </div>
+          <div style="border-top:1px solid #111;margin-top:5%;padding-top:4%;display:flex;justify-content:space-between">
+            <div style="font-size:4px;color:#333;font-family:Arial,sans-serif">© 2026</div>
+            <div style="font-size:4px;color:#efefef;font-family:Arial,sans-serif;text-decoration:underline">email →</div>
+          </div>
+        </div>
+      </div>
+      <div class="sn">Brutalist</div>
+      <button class="sb" onclick="pick(1)">Select this design</button>
     </div>
 
-    <h1>Building <span class="highlight">V2</span> of<br>my portfolio</h1>
+    <!-- Thumb 2: Minimalist -->
+    <div class="sc">
+      <div class="st" onclick="pick(2)" style="background:#f7f6f2">
+        <div style="height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10%;gap:0;text-align:center">
+          <div style="font-family:-apple-system,sans-serif;font-size:4px;letter-spacing:.22em;text-transform:uppercase;color:#bbb;margin-bottom:16%">DEEKSHITH RATHOD</div>
+          <div style="font-family:Georgia,serif;font-size:10px;font-style:italic;color:#111;line-height:1.4;margin-bottom:8%">Sorry for the<br>wait — V2<br>is on its way.</div>
+          <div style="width:16px;height:1px;background:#d0d0d0;margin-bottom:8%"></div>
+          <div style="display:flex;gap:10%;justify-content:center;margin-bottom:12%">
+            <div style="text-align:center"><div style="font-family:Georgia,serif;font-size:13px;color:#111">16</div><div style="font-family:-apple-system,sans-serif;font-size:4px;color:#ccc;letter-spacing:.1em;text-transform:uppercase;margin-top:2px">days</div></div>
+            <div style="text-align:center"><div style="font-family:Georgia,serif;font-size:13px;color:#111">05</div><div style="font-family:-apple-system,sans-serif;font-size:4px;color:#ccc;letter-spacing:.1em;text-transform:uppercase;margin-top:2px">hrs</div></div>
+            <div style="text-align:center"><div style="font-family:Georgia,serif;font-size:13px;color:#111">32</div><div style="font-family:-apple-system,sans-serif;font-size:4px;color:#ccc;letter-spacing:.1em;text-transform:uppercase;margin-top:2px">min</div></div>
+          </div>
+          <div style="font-family:-apple-system,sans-serif;font-size:4px;color:#aaa;letter-spacing:.12em;text-transform:uppercase;border-bottom:1px solid #ddd;padding-bottom:1px">MAY 15, 2026</div>
+        </div>
+      </div>
+      <div class="sn">Minimalist</div>
+      <button class="sb" onclick="pick(2)">Select this design</button>
+    </div>
 
-    <p class="subtitle">
-      Sorry, you'll have to wait a little longer. I'm crafting something worth the wait. The new portfolio launches on <strong style="color: var(--text);">May 15th</strong>.
+    <!-- Thumb 3: Terminal -->
+    <div class="sc">
+      <div class="st" onclick="pick(3)" style="background:#080d08">
+        <div style="height:100%;padding:8%;display:flex;flex-direction:column;gap:5%;font-family:'Courier New',monospace">
+          <div style="font-size:5px;color:#006820;line-height:1.7">
+            <span style="color:#00e53a">$</span> whoami<br>
+            <span style="color:#006820">→ deekshith_rathod</span>
+          </div>
+          <div style="border:1px solid #006820;padding:5%;font-size:4px;color:#00b830;line-height:1.8">
+            STATUS: BUILDING V2<br>ETA: 2026-05-15<br>DAYS LEFT: 16
+          </div>
+          <div style="display:flex;gap:0">
+            <div style="flex:1;border:1px solid #006820;padding:4%;text-align:center"><div style="font-size:10px;color:#00e53a">16</div><div style="font-size:4px;color:#006820">D</div></div>
+            <div style="flex:1;border:1px solid #006820;padding:4%;text-align:center;margin-left:-1px"><div style="font-size:10px;color:#00e53a">05</div><div style="font-size:4px;color:#006820">H</div></div>
+            <div style="flex:1;border:1px solid #006820;padding:4%;text-align:center;margin-left:-1px"><div style="font-size:10px;color:#00e53a">32</div><div style="font-size:4px;color:#006820">M</div></div>
+            <div style="flex:1;border:1px solid #006820;padding:4%;text-align:center;margin-left:-1px"><div style="font-size:10px;color:#00e53a">47</div><div style="font-size:4px;color:#006820">S</div></div>
+          </div>
+          <div style="font-size:5px;color:#006820">
+            <span style="color:#00e53a">$</span> <span style="animation:blink 1s step-end infinite">█</span>
+          </div>
+        </div>
+      </div>
+      <div class="sn">Terminal</div>
+      <button class="sb" onclick="pick(3)">Select this design</button>
+    </div>
+
+    <!-- Thumb 4: Editorial -->
+    <div class="sc">
+      <div class="st" onclick="pick(4)" style="background:#eee8d5">
+        <div style="height:100%;display:flex;flex-direction:column">
+          <div style="border-bottom:1px solid #c4b27a;padding:5% 8%;display:flex;justify-content:space-between;flex-shrink:0">
+            <div style="font-family:-apple-system,sans-serif;font-size:4px;color:#9a8450;letter-spacing:.12em;text-transform:uppercase">Deekshith Rathod</div>
+            <div style="font-family:-apple-system,sans-serif;font-size:4px;color:#9a8450">MAY 2026</div>
+          </div>
+          <div style="flex:1;padding:7% 8%;display:grid;grid-template-columns:1fr 1px 36%;gap:0 5%">
+            <div>
+              <div style="font-size:3.5px;color:#b83018;letter-spacing:.15em;text-transform:uppercase;margin-bottom:5%;font-family:-apple-system,sans-serif;display:flex;align-items:center;gap:3px"><span style="display:block;width:8px;height:1px;background:#b83018"></span>Portfolio</div>
+              <div style="font-family:Georgia,serif;font-size:18px;font-weight:700;line-height:.92;letter-spacing:-.5px;color:#1c1400">BUILD<br>ING<br>V2</div>
+              <div style="font-family:Georgia,serif;font-size:4.5px;font-style:italic;color:#5a430e;margin-top:6%;border-left:2px solid #b83018;padding-left:3%;line-height:1.6">Coming soon. May 15th. Worth the wait.</div>
+            </div>
+            <div style="background:#c4b27a"></div>
+            <div>
+              <div style="font-family:-apple-system,sans-serif;font-size:3.5px;letter-spacing:.15em;text-transform:uppercase;color:#9a8450;border-bottom:1px solid #c4b27a;padding-bottom:3%;margin-bottom:3%">Countdown</div>
+              <div style="border-bottom:1px solid #ddd1a8;padding:5% 0;display:flex;justify-content:space-between;align-items:baseline"><div style="font-family:Georgia,serif;font-size:13px;font-weight:700">16</div><div style="font-family:-apple-system,sans-serif;font-size:3.5px;color:#9a8450;text-transform:uppercase">Days</div></div>
+              <div style="border-bottom:1px solid #ddd1a8;padding:5% 0;display:flex;justify-content:space-between;align-items:baseline"><div style="font-family:Georgia,serif;font-size:13px;font-weight:700">05</div><div style="font-family:-apple-system,sans-serif;font-size:3.5px;color:#9a8450;text-transform:uppercase">Hrs</div></div>
+              <div style="padding:5% 0;display:flex;justify-content:space-between;align-items:baseline"><div style="font-family:Georgia,serif;font-size:13px;font-weight:700">32</div><div style="font-family:-apple-system,sans-serif;font-size:3.5px;color:#9a8450;text-transform:uppercase">Min</div></div>
+            </div>
+          </div>
+          <div style="border-top:1px solid #c4b27a;padding:4% 8%;display:flex;justify-content:space-between;flex-shrink:0">
+            <div style="font-family:-apple-system,sans-serif;font-size:3.5px;color:#9a8450">© 2026</div>
+            <div style="font-family:-apple-system,sans-serif;font-size:3.5px;color:#b83018">Get in touch →</div>
+          </div>
+        </div>
+      </div>
+      <div class="sn">Editorial</div>
+      <button class="sb" onclick="pick(4)">Select this design</button>
+    </div>
+
+    <!-- Thumb 5: Playful -->
+    <div class="sc">
+      <div class="st" onclick="pick(5)" style="background:#fff9ec;position:relative;overflow:hidden">
+        <div style="position:absolute;width:130px;height:130px;background:#ffbe0b;opacity:.18;border-radius:55% 45% 60% 40%/40% 60% 45% 55%;top:-30px;right:-20px"></div>
+        <div style="position:absolute;width:90px;height:90px;background:#ff6b35;opacity:.14;border-radius:55% 45% 60% 40%/40% 60% 45% 55%;bottom:-20px;left:-15px"></div>
+        <div style="height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10%;gap:5%;position:relative;z-index:1;text-align:center">
+          <div style="background:#ffbe0b;color:#140800;font-family:-apple-system,sans-serif;font-size:4.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;border-radius:100px;border:1.5px solid #140800;transform:rotate(-2deg)">Building V2 ✦</div>
+          <div style="font-family:-apple-system,sans-serif;font-size:19px;font-weight:900;letter-spacing:-1px;line-height:.93;color:#140800">GOOD<br>THINGS<br><span style="color:#ff6b35;text-decoration:line-through;text-decoration-thickness:2px">WAIT</span><br><span style="font-size:14px">MAY 15</span></div>
+          <div style="display:flex;gap:3%">
+            <div style="background:#fff;border:2px solid #140800;border-radius:5px;padding:3% 4%;min-width:28%;text-align:center;box-shadow:2px 2px 0 #140800"><div style="font-family:-apple-system,sans-serif;font-size:10px;font-weight:900;color:#ff6b35">16</div><div style="font-size:3.5px;color:#aaa;text-transform:uppercase;margin-top:1px">D</div></div>
+            <div style="background:#fff;border:2px solid #140800;border-radius:5px;padding:3% 4%;min-width:28%;text-align:center;box-shadow:2px 2px 0 #140800"><div style="font-family:-apple-system,sans-serif;font-size:10px;font-weight:900;color:#ff6b35">05</div><div style="font-size:3.5px;color:#aaa;text-transform:uppercase;margin-top:1px">H</div></div>
+            <div style="background:#fff;border:2px solid #140800;border-radius:5px;padding:3% 4%;min-width:28%;text-align:center;box-shadow:2px 2px 0 #140800"><div style="font-family:-apple-system,sans-serif;font-size:10px;font-weight:900;color:#ff6b35">32</div><div style="font-size:3.5px;color:#aaa;text-transform:uppercase;margin-top:1px">M</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="sn">Neo-Brutalist</div>
+      <button class="sb" onclick="pick(5)">Select this design</button>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ─── DESIGN 1: BRUTALIST ──────────────────────────── -->
+<div class="d" id="d1">
+  <nav class="d1-nav">
+    <span class="d1-nav-l">Deekshith Rathod</span>
+    <span class="d1-nav-r">Portfolio · 2026</span>
+  </nav>
+  <main class="d1-body">
+    <p class="d1-flag">Under Construction</p>
+    <h1 class="d1-h">
+      BUILDING<br>
+      <span class="r">V2</span> OF<br>
+      MY <span class="inv">PORTFOLIO</span>
+    </h1>
+    <p class="d1-msg">
+      Sorry, you'll have to wait a little longer.<br>
+      I'm building something worth your time.<br>
+      <strong>Launching May 15th, 2026.</strong>
     </p>
+    <div class="d1-cd">
+      <div class="d1-cdi"><div class="d1-cdn cd-d">--</div><div class="d1-cdl">Days</div></div>
+      <div class="d1-cdi"><div class="d1-cdn cd-h">--</div><div class="d1-cdl">Hours</div></div>
+      <div class="d1-cdi"><div class="d1-cdn cd-m">--</div><div class="d1-cdl">Minutes</div></div>
+      <div class="d1-cdi"><div class="d1-cdn cd-s">--</div><div class="d1-cdl">Seconds</div></div>
+    </div>
+  </main>
+  <footer class="d1-foot">
+    <span>© 2026 Deekshith Rathod</span>
+    <a href="mailto:deekshithrathod@gmail.com">deekshithrathod@gmail.com</a>
+  </footer>
+</div>
 
-    <div class="countdown" id="countdown">
-      <div class="countdown-block">
-        <div class="countdown-number" id="days">--</div>
-        <div class="countdown-label">Days</div>
-      </div>
-      <div class="countdown-block">
-        <div class="countdown-number" id="hours">--</div>
-        <div class="countdown-label">Hours</div>
-      </div>
-      <div class="countdown-block">
-        <div class="countdown-number" id="minutes">--</div>
-        <div class="countdown-label">Minutes</div>
-      </div>
-      <div class="countdown-block">
-        <div class="countdown-number" id="seconds">--</div>
-        <div class="countdown-label">Seconds</div>
+
+<!-- ─── DESIGN 2: MINIMALIST ─────────────────────────── -->
+<div class="d" id="d2">
+  <p class="d2-eyebrow">Deekshith Rathod &nbsp;&middot;&nbsp; Portfolio</p>
+  <h1 class="d2-h">
+    Sorry for the wait —<br>
+    something much better<br>
+    is on its way.
+  </h1>
+  <div class="d2-rule"></div>
+  <p class="d2-when">Launching &ensp; 15 May 2026</p>
+  <div class="d2-cd">
+    <div class="d2-cdi"><div class="d2-cdn cd-d">--</div><div class="d2-cdl">Days</div></div>
+    <div class="d2-cdi"><div class="d2-cdn cd-h">--</div><div class="d2-cdl">Hours</div></div>
+    <div class="d2-cdi"><div class="d2-cdn cd-m">--</div><div class="d2-cdl">Min</div></div>
+    <div class="d2-cdi"><div class="d2-cdn cd-s">--</div><div class="d2-cdl">Sec</div></div>
+  </div>
+  <p class="d2-contact"><a href="mailto:deekshithrathod@gmail.com">deekshithrathod@gmail.com</a></p>
+  <p class="d2-name">Deekshith Rathod</p>
+</div>
+
+
+<!-- ─── DESIGN 3: TERMINAL ───────────────────────────── -->
+<div class="d" id="d3">
+  <div class="d3i">
+    <p class="d3p"><span class="d3-dim">visitor@portfolio:~$</span> whoami</p>
+    <p class="d3p d3-dim">→ Deekshith Rathod / Software Engineer</p>
+    <br>
+    <p class="d3p"><span class="d3-dim">visitor@portfolio:~$</span> cat status.txt</p>
+    <div class="d3-ascii">
+╔══════════════════════════════════════════════════════════╗
+║                                                          ║
+║    ██████╗ ███████╗███████╗██╗  ██╗███████╗████████╗    ║
+║    ██╔══██╗██╔════╝██╔════╝██║ ██╔╝██╔════╝╚══██╔══╝    ║
+║    ██║  ██║█████╗  █████╗  █████╔╝ ███████╗   ██║       ║
+║    ██║  ██║██╔══╝  ██╔══╝  ██╔═██╗      ██║   ██║       ║
+║    ██████╔╝███████╗███████╗██║  ██╗███████║   ██║       ║
+║    ╚═════╝ ╚══════╝╚══════╝╚═╝  ╚═╝╚══════╝   ╚═╝       ║
+║                                                          ║
+╠══════════════════════════════════════════════════════════╣
+║    OPERATOR  ....  DEEKSHITH RATHOD                      ║
+║    STATUS    ....  PORTFOLIO V2 IN PROGRESS              ║
+║    ETA       ....  2026-05-15 00:00:00 UTC               ║
+║    CONTACT   ....  deekshithrathod@gmail.com             ║
+╚══════════════════════════════════════════════════════════╝</div>
+    <p class="d3p"><span class="d3-dim">visitor@portfolio:~$</span> countdown --to 2026-05-15</p>
+    <p class="d3p d3-dim">→ computing time remaining...</p>
+    <div class="d3-cdrow">
+      <div class="d3-cdi"><div class="d3-cdn cd-d">--</div><div class="d3-cdl">days</div></div>
+      <div class="d3-cdi"><div class="d3-cdn cd-h">--</div><div class="d3-cdl">hrs</div></div>
+      <div class="d3-cdi"><div class="d3-cdn cd-m">--</div><div class="d3-cdl">min</div></div>
+      <div class="d3-cdi"><div class="d3-cdn cd-s">--</div><div class="d3-cdl">sec</div></div>
+    </div>
+    <br>
+    <p class="d3p"><span class="d3-dim">visitor@portfolio:~$</span> send-mail deekshithrathod@gmail.com</p>
+    <p class="d3p d3-dim">→ opens your mail client. or just email directly: <a class="d3-link" href="mailto:deekshithrathod@gmail.com">deekshithrathod@gmail.com</a></p>
+    <br>
+    <p class="d3p"><span class="d3-dim">visitor@portfolio:~$</span> <span class="blink">█</span></p>
+  </div>
+</div>
+
+
+<!-- ─── DESIGN 4: EDITORIAL ──────────────────────────── -->
+<div class="d" id="d4">
+  <header class="d4-hdr">
+    <span class="d4-pub">Deekshith Rathod &nbsp;&middot;&nbsp; Portfolio</span>
+    <span class="d4-iss">Vol. 2 &nbsp;·&nbsp; April 2026</span>
+  </header>
+  <main class="d4-main">
+    <div>
+      <p class="d4-cat">Portfolio Update</p>
+      <h1 class="d4-h">Building V2<br>of my Portfolio</h1>
+      <p class="d4-deck">
+        Sorry, you'll have to wait a little longer. Going to launch on the 15th of May — and it'll be worth it.
+      </p>
+      <div class="d4-body">
+        The current portfolio served its purpose well, but V2 is a complete reimagination. New case studies, tighter writing, and a design system I'm genuinely proud of. Every pixel deliberate. Every word earned its place.
+        <br><br>
+        In the meantime, don't hesitate to reach out directly. I read every message and respond to most. Find me at <a href="mailto:deekshithrathod@gmail.com">deekshithrathod@gmail.com</a>.
       </div>
     </div>
+    <div class="d4-sep"></div>
+    <div class="d4-rhs">
+      <p class="d4-slbl">Time until launch</p>
+      <div class="d4-cdi"><span class="d4-cdn cd-d">--</span><span class="d4-cdl">Days</span></div>
+      <div class="d4-cdi"><span class="d4-cdn cd-h">--</span><span class="d4-cdl">Hours</span></div>
+      <div class="d4-cdi"><span class="d4-cdn cd-m">--</span><span class="d4-cdl">Minutes</span></div>
+      <div class="d4-cdi"><span class="d4-cdn cd-s">--</span><span class="d4-cdl">Seconds</span></div>
+      <p class="d4-aside">
+        "Every great design begins with an even better story."
+      </p>
+    </div>
+  </main>
+  <footer class="d4-ftr">
+    <span>© 2026 Deekshith Rathod</span>
+    <a href="mailto:deekshithrathod@gmail.com">deekshithrathod@gmail.com &rarr;</a>
+  </footer>
+</div>
 
-    <a class="cta" href="mailto:deekshithrathod@gmail.com">
-      Get in touch
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"/>
-      </svg>
+
+<!-- ─── DESIGN 5: NEO-BRUTALIST / PLAYFUL ────────────── -->
+<div class="d" id="d5">
+  <div class="d5-blob d5-b1"></div>
+  <div class="d5-blob d5-b2"></div>
+  <div class="d5-blob d5-b3"></div>
+  <div class="d5i">
+    <div class="d5-stamp">Currently Building ✦</div>
+    <h1 class="d5-h">
+      Good things<br>
+      take <span class="crossed">forever</span><br>
+      almost.
+    </h1>
+    <p class="d5-sub">
+      Building V2 of this portfolio — sorry you'll have to wait a little longer. Launching <strong>May 15th</strong>. Promise.
+    </p>
+    <div class="d5-cd">
+      <div class="d5-cdi"><div class="d5-cdn cd-d">--</div><div class="d5-cdl">Days</div></div>
+      <div class="d5-cdi"><div class="d5-cdn cd-h">--</div><div class="d5-cdl">Hours</div></div>
+      <div class="d5-cdi"><div class="d5-cdn cd-m">--</div><div class="d5-cdl">Min</div></div>
+      <div class="d5-cdi"><div class="d5-cdn cd-s">--</div><div class="d5-cdl">Sec</div></div>
+    </div>
+    <a class="d5-cta" href="mailto:deekshithrathod@gmail.com">
+      Get in touch &rarr;
     </a>
+    <p class="d5-foot">Deekshith Rathod &nbsp;&middot;&nbsp; deekshithrathod@gmail.com</p>
   </div>
+</div>
 
-  <div class="footer">
-    Deekshith Rathod &middot; <a href="mailto:deekshithrathod@gmail.com">deekshithrathod@gmail.com</a>
-  </div>
 
-  <script>
-    const launch = new Date('2026-05-15T00:00:00').getTime();
+<script>
+function pick(n) {
+  document.getElementById('sel').style.display = 'none';
+  document.getElementById('d' + n).style.display = n === 4 ? 'grid' : 'flex';
+  window.scrollTo(0, 0);
+}
 
-    function tick() {
-      const gap = launch - Date.now();
-      if (gap <= 0) {
-        document.getElementById('days').textContent = '0';
-        document.getElementById('hours').textContent = '0';
-        document.getElementById('minutes').textContent = '0';
-        document.getElementById('seconds').textContent = '0';
-        return;
-      }
-      const d = Math.floor(gap / 86400000);
-      const h = Math.floor((gap % 86400000) / 3600000);
-      const m = Math.floor((gap % 3600000) / 60000);
-      const s = Math.floor((gap % 60000) / 1000);
-      document.getElementById('days').textContent = d;
-      document.getElementById('hours').textContent = h;
-      document.getElementById('minutes').textContent = m;
-      document.getElementById('seconds').textContent = s;
-    }
+const LAUNCH = new Date('2026-05-15T00:00:00').getTime();
 
-    tick();
-    setInterval(tick, 1000);
-  </script>
+function tick() {
+  const diff = LAUNCH - Date.now();
+  const d = diff > 0 ? Math.floor(diff / 86400000) : 0;
+  const h = diff > 0 ? Math.floor((diff % 86400000) / 3600000) : 0;
+  const m = diff > 0 ? Math.floor((diff % 3600000) / 60000) : 0;
+  const s = diff > 0 ? Math.floor((diff % 60000) / 1000) : 0;
+  const p = n => String(n).padStart(2, '0');
+  document.querySelectorAll('.cd-d').forEach(el => el.textContent = d);
+  document.querySelectorAll('.cd-h').forEach(el => el.textContent = p(h));
+  document.querySelectorAll('.cd-m').forEach(el => el.textContent = p(m));
+  document.querySelectorAll('.cd-s').forEach(el => el.textContent = p(s));
+}
+
+tick();
+setInterval(tick, 1000);
+</script>
 </body>
 </html>
